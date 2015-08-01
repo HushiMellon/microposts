@@ -19,14 +19,20 @@ class UsersController < ApplicationController
   end
   
   def edit
-  
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Welcome to the Sample App!"
+       redirect_to @user # ここを修正
+    else
+      render 'new'
+    end
   end
   
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :email, :password, :area, :profile ,
                                  :password_confirmation)
   end
 end
