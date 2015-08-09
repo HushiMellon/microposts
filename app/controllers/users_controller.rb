@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     end
   end
   
+<<<<<<< HEAD
   def update
       @user = User.find(params[:id])
     if @user.update
@@ -27,13 +28,32 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+=======
+  def edit
+    @user = User.find(params[:id])
+    
+>>>>>>> user-profile
   end
-  
+ 
+ def update
+      @user = User.find(params[:id])
+   if @user.update(user_params)
+      flash[:success] = "Welcome to the Sample App!"
+       redirect_to @user # ここを修正
+    else
+      render 'edit'
+    end
+ end
 
   private
 
   def user_params
+<<<<<<< HEAD
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation, :area, :profile )
+=======
+    params.require(:user).permit(:name, :email, :password, :area, :profile ,
+                                 :password_confirmation)
+>>>>>>> user-profile
   end
 end
