@@ -31,9 +31,22 @@ class UsersController < ApplicationController
        redirect_to @user # ここを修正
     else
       render 'edit'
-    end
+   end
  end
-
+ 
+ def followings
+  # @user = current_user.following_relationships.find_by(follower_id: params[:user_id]) 
+   # @followings = @user.followed
+ @followings = current_user.following_users
+   
+   
+ end
+ 
+ def followed
+    # @user = current_user.followed_relationships.find_by(followed_id: params[:user_id]) 
+ @followed = current_user.followed_users 
+ end
+ 
   private
 
   def user_params
