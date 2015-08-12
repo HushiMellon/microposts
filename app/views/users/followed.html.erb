@@ -5,14 +5,17 @@
   <li id="<%= d %>">
   <%= link_to gravatar_for d %>
   <span class="user"><%= link_to d.name, d %></span>
-  <div class="col-md-4">
+
     <% if d.microposts.any? %>
       <h3>Microposts (<%= d.microposts.count %>)</h3>
       <ol class="microposts">
       </ol>
     <% end %>
 </li>
-</div>
+
   </div>
 </div>
+</br>
 <% end %>
+
+</br>
